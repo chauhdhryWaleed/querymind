@@ -1,0 +1,29 @@
+Your previous SQL failed. Analyse the error and return a corrected query. Keep the
+original intent; change only what's needed to fix it.
+
+## QUESTION
+{{ question }}
+
+## FAILED SQL
+{{ failed_sql }}
+
+## ERROR
+{{ error_message }}
+
+## FIX
+{{ correction_strategy }}
+{% if correction_history %}
+## ALREADY TRIED (don't repeat these)
+{% for attempt in correction_history %}
+- {{ attempt.failed_sql }} → {{ attempt.error }}
+{% endfor %}
+{% endif %}
+## SCHEMA
+{{ schema_context }}
+
+Constraints still apply: one read-only SELECT (optionally WITH), no semicolon or
+comments, only schema tables/columns, explicit columns and JOIN ... ON.
+
+## OUTPUT
+Respond with ONLY this JSON object (escape quotes/newlines in `sql`):
+{"sql": "<corrected SELECT>", "explanation": "<one sentence on what changed>"}

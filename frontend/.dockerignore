@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.env*
+openapi.json
+e2e
+playwright-report
+test-results
+Dockerfile
+.dockerignore

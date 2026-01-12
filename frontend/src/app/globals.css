@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Open Parley design tokens - Linear-style, dark-first developer tool.
+   Cool near-black surfaces, hairline borders, a cyan/teal accent, low chroma
+   everywhere except state colors. Light theme mirrors the same hues.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+  --radius: 0.5rem;
+
+  /* Light theme (available via toggle) */
+  --background: oklch(0.992 0.001 247);
+  --foreground: oklch(0.21 0.012 256);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.012 256);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.012 256);
+
+  --primary: oklch(0.58 0.12 215);
+  --primary-foreground: oklch(0.99 0.005 220);
+
+  --secondary: oklch(0.968 0.003 247);
+  --secondary-foreground: oklch(0.27 0.012 256);
+  --muted: oklch(0.968 0.003 247);
+  --muted-foreground: oklch(0.49 0.012 257);
+  --accent: oklch(0.965 0.006 230);
+  --accent-foreground: oklch(0.27 0.012 256);
+
+  --destructive: oklch(0.585 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 250);
+  --success: oklch(0.6 0.14 155);
+  --warning: oklch(0.7 0.15 75);
+
+  --border: oklch(0.92 0.004 247);
+  --input: oklch(0.9 0.004 247);
+  --ring: oklch(0.58 0.12 215);
+
+  --chart-1: oklch(0.6 0.13 210);
+  --chart-2: oklch(0.62 0.13 165);
+  --chart-3: oklch(0.7 0.15 75);
+  --chart-4: oklch(0.62 0.2 330);
+  --chart-5: oklch(0.58 0.18 285);
+
+  --sidebar: oklch(0.976 0.002 247);
+  --sidebar-foreground: oklch(0.21 0.012 256);
+  --sidebar-accent: oklch(0.94 0.004 247);
+  --sidebar-border: oklch(0.92 0.004 247);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Cool near-black ramp. Background is the floor; card/popover lift off it. */
+  --background: oklch(0.165 0.006 265);
+  --foreground: oklch(0.965 0.003 247);
+  --card: oklch(0.205 0.007 265);
+  --card-foreground: oklch(0.965 0.003 247);
+  --popover: oklch(0.215 0.008 265);
+  --popover-foreground: oklch(0.965 0.003 247);
+
+  /* Cyan/teal accent, bright enough to sit on the dark floor with dark text. */
+  --primary: oklch(0.8 0.12 205);
+  --primary-foreground: oklch(0.2 0.03 230);
+
+  --secondary: oklch(0.25 0.007 265);
+  --secondary-foreground: oklch(0.965 0.003 247);
+  --muted: oklch(0.25 0.007 265);
+  --muted-foreground: oklch(0.685 0.013 257);
+  --accent: oklch(0.27 0.008 265);
+  --accent-foreground: oklch(0.965 0.003 247);
+
+  --destructive: oklch(0.66 0.2 24);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --success: oklch(0.74 0.15 158);
+  --warning: oklch(0.8 0.14 78);
+
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.8 0.12 205);
+
+  --chart-1: oklch(0.8 0.12 205);
+  --chart-2: oklch(0.75 0.14 160);
+  --chart-3: oklch(0.8 0.14 78);
+  --chart-4: oklch(0.72 0.18 330);
+  --chart-5: oklch(0.7 0.16 285);
+
+  --sidebar: oklch(0.185 0.006 265);
+  --sidebar-foreground: oklch(0.965 0.003 247);
+  --sidebar-accent: oklch(0.255 0.008 265);
+  --sidebar-border: oklch(1 0 0 / 8%);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", "JetBrains Mono",
+    "Fira Code", monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+  }
+  /* Tabular figures for anything dense and numeric. */
+  th, td, pre, code, kbd, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--color-primary) 28%, transparent);
+  }
+  /* Consistent, calm focus ring across interactive elements. */
+  :focus-visible {
+    outline: 2px solid color-mix(in oklch, var(--color-ring) 70%, transparent);
+    outline-offset: 2px;
+  }
+}
+
+/* Thin, theme-aware scrollbars that don't fight the dark UI. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--color-foreground) 14%, transparent);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklch, var(--color-foreground) 24%, transparent);
+  background-clip: padding-box;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

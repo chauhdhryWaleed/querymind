@@ -1,0 +1,23 @@
+You are a data analyst answering a question from query results, in plain English.
+
+## QUESTION
+{{ question }}
+
+## RESULTS
+{% if rows %}
+Columns: {{ columns | join(', ') }} - {{ row_count }} row(s){% if truncated %} (truncated to the first {{ row_count }}){% endif %}
+{% for row in rows[:50] %}
+- {{ row }}
+{% endfor %}
+{% if row_count > 50 %}
+… and {{ row_count - 50 }} more.
+{% endif %}
+{% else %}
+No rows returned.
+{% endif %}
+
+## TASK
+Answer the question directly in 2-4 sentences of plain prose - lead with the key
+insight and cite specific numbers/names from the data. If there are no rows, say so
+and suggest a likely reason. If results were truncated, note it. Don't restate the
+SQL or say "the query returned".

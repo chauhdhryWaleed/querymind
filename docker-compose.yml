@@ -1,0 +1,115 @@
+name: querymind
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: querymind_postgres
+    environment:
+      POSTGRES_USER: querymind
+      POSTGRES_PASSWORD: querymind
+      POSTGRES_DB: querymind
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Applied in lexical order: extensions, CREATE DATABASE demo, seed demo.
+      - ./backend/docker/postgres/00-extensions.sql:/docker-entrypoint-initdb.d/00-extensions.sql:ro
+      - ./backend/docker/postgres/05-create-demo-db.sql:/docker-entrypoint-initdb.d/05-create-demo-db.sql:ro
+      - ./backend/docker/postgres/10-demo-seed.sql:/docker-entrypoint-initdb.d/10-demo-seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U querymind -d querymind"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: querymind_redis
+    ports:
+      - "6381:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: querymind_app
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://querymind:querymind@postgres:5432/querymind
+      REDIS_URL: redis://redis:6379/0
+      HF_HOME: /hf-cache
+    # Apply migrations before serving so the app tables always exist.
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    volumes:
+      - hf_cache:/hf-cache
+    ports:
+      - "8002:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Background jobs: schema indexing, drift checks, FK weighting, email.
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: querymind_worker
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://querymind:querymind@postgres:5432/querymind
+      REDIS_URL: redis://redis:6379/0
+      HF_HOME: /hf-cache
+    volumes:
+      - hf_cache:/hf-cache
+    command: ["arq", "app.jobs.worker.WorkerSettings"]
+    # arq has no HTTP server, so the image's uvicorn HEALTHCHECK can't pass here.
+    # ["NONE"] disables the inherited healthcheck (same effect as disable: true).
+    healthcheck:
+      test: ["NONE"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8002
+    container_name: querymind_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - app
+
+  adminer:
+    image: adminer:4
+    container_name: querymind_adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+    profiles:
+      - dev
+
+volumes:
+  postgres_data:
+  redis_data:
+  hf_cache:
