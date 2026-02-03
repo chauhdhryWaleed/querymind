@@ -11,3 +11,7 @@
 ## [0.3.0] – 2026-01-28
 - httpOnly session cookies with CSRF tokens
 - `X-CSRF-Token` header enforcement on mutating routes
+
+## [0.4.0] – 2026-02-03
+- /health endpoint returns db and redis status
+- structured logging via structlog
