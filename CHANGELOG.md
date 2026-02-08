@@ -15,3 +15,7 @@
 ## [0.4.0] – 2026-02-03
 - /health endpoint returns db and redis status
 - structured logging via structlog
+
+## [0.5.0] – 2026-02-08
+- Connection model with AES-GCM credential encryption
+- connection CRUD endpoints
