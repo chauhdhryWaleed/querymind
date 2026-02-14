@@ -11,7 +11,7 @@ _FORBIDDEN_NODE_TYPES = (
     exp.Insert,
     exp.Create,
     exp.Alter,
-    exp.TruncateTable,
+    exp.TruncateTable,  # added v0.6
     exp.Merge,
     exp.Command,  # catches arbitrary DDL that sqlglot doesn't model specifically
 )

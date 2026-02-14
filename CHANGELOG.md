@@ -19,3 +19,7 @@
 ## [0.5.0] – 2026-02-08
 - Connection model with AES-GCM credential encryption
 - connection CRUD endpoints
+
+## [0.6.0] – 2026-02-14
+- SQL safety validator: blocks DROP/DELETE/INSERT/UPDATE
+- syntax validator via sqlglot
