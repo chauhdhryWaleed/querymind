@@ -23,3 +23,7 @@
 ## [0.6.0] – 2026-02-14
 - SQL safety validator: blocks DROP/DELETE/INSERT/UPDATE
 - syntax validator via sqlglot
+
+## [0.7.0] – 2026-02-18
+- email verification flow with signed tokens
+- password reset via emailed link
