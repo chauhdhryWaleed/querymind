@@ -27,3 +27,7 @@
 ## [0.7.0] – 2026-02-18
 - email verification flow with signed tokens
 - password reset via emailed link
+
+## [0.8.0] – 2026-02-22
+- Next.js app router setup
+- auth layout with login/signup pages

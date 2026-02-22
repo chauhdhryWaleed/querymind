@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QueryMind",
+  title: "QueryMind | Text to SQL",
   description:
     "Connect your database, plug in your LLM key, and ask questions in natural language.",
 };
