@@ -31,3 +31,7 @@
 ## [0.8.0] – 2026-02-22
 - Next.js app router setup
 - auth layout with login/signup pages
+
+## [0.9.0] – 2026-02-26
+- workspace CRUD API
+- user <-> workspace membership model
