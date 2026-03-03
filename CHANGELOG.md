@@ -35,3 +35,7 @@
 ## [0.9.0] – 2026-02-26
 - workspace CRUD API
 - user <-> workspace membership model
+
+## [0.10.0] – 2026-03-03
+- per-user LLM API key storage (encrypted)
+- support for Anthropic, OpenAI, Gemini providers

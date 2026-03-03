@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
     VERSION: str = "1.0.0"
     APP_NAME: str = "querymind"
+    # providers: anthropic, openai, gemini
 
     # CORS: explicit origins required because the SPA sends credentialed requests
     # (cookies); browsers reject "*" with credentials.
