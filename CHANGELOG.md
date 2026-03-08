@@ -39,3 +39,7 @@
 ## [0.10.0] – 2026-03-03
 - per-user LLM API key storage (encrypted)
 - support for Anthropic, OpenAI, Gemini providers
+
+## [0.11.0] – 2026-03-08
+- database schema introspection (tables, columns, FK graph)
+- schema indexing to vector store
