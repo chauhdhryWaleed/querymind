@@ -43,3 +43,7 @@
 ## [0.11.0] – 2026-03-08
 - database schema introspection (tables, columns, FK graph)
 - schema indexing to vector store
+
+## [0.12.0] – 2026-03-12
+- local embeddings via BAAI/bge-small-en-v1.5
+- pgvector integration for semantic search
