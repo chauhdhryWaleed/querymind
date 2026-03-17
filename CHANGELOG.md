@@ -47,3 +47,7 @@
 ## [0.12.0] – 2026-03-12
 - local embeddings via BAAI/bge-small-en-v1.5
 - pgvector integration for semantic search
+
+## [0.13.0] – 2026-03-17
+- hybrid retrieval: pgvector cosine + pg_trgm lexical
+- RRF fusion ranking
