@@ -51,3 +51,7 @@
 ## [0.13.0] – 2026-03-17
 - hybrid retrieval: pgvector cosine + pg_trgm lexical
 - RRF fusion ranking
+
+## [0.14.0] – 2026-03-22
+- LangGraph state machine: plan -> generate -> validate -> execute -> explain
+- retry loop on validation failure

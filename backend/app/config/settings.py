@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     # Application
     ENVIRONMENT: Literal["development", "staging", "production"] = "development"
-    LOG_LEVEL: str = "WARNING"
+    LOG_LEVEL: str = "INFO"
     VERSION: str = "1.0.0"
     APP_NAME: str = "querymind"
     # providers: anthropic, openai, gemini
