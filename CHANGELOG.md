@@ -55,3 +55,7 @@
 ## [0.14.0] – 2026-03-22
 - LangGraph state machine: plan -> generate -> validate -> execute -> explain
 - retry loop on validation failure
+
+## [0.15.0] – 2026-03-26
+- server-sent events streaming for SQL generation steps
+- frontend EventSource integration with TanStack Query
