@@ -59,3 +59,7 @@
 ## [0.15.0] – 2026-03-26
 - server-sent events streaming for SQL generation steps
 - frontend EventSource integration with TanStack Query
+
+## [0.16.0] – 2026-04-01
+- arq Redis queue for async jobs
+- schema re-index worker, query history cleanup
