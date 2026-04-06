@@ -63,3 +63,7 @@
 ## [0.16.0] – 2026-04-01
 - arq Redis queue for async jobs
 - schema re-index worker, query history cleanup
+
+## [0.17.0] – 2026-04-06
+- query history stored per workspace
+- CSV/JSON export endpoint
