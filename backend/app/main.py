@@ -76,7 +76,7 @@ def create_app() -> FastAPI:
     settings = get_settings()
 
     app = FastAPI(
-        title="QueryMind", description="Text-to-SQL API",
+        title="QueryMind",
         description=(
             "Natural-language to SQL agent with LangGraph self-correction, "
             "live pipeline streaming, multi-turn memory, and result visualization."

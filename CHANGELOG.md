@@ -67,3 +67,7 @@
 ## [0.17.0] – 2026-04-06
 - query history stored per workspace
 - CSV/JSON export endpoint
+
+## [0.18.0] – 2026-04-10
+- slowapi rate limiting on query endpoints
+- per-user limits stored in Redis
