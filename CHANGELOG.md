@@ -71,3 +71,7 @@
 ## [0.18.0] – 2026-04-10
 - slowapi rate limiting on query endpoints
 - per-user limits stored in Redis
+
+## [0.19.0] – 2026-04-15
+- chart suggestions from query result shape
+- bar / line / pie auto-selection
