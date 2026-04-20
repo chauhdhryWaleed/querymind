@@ -75,3 +75,7 @@
 ## [0.19.0] – 2026-04-15
 - chart suggestions from query result shape
 - bar / line / pie auto-selection
+
+## [0.20.0] – 2026-04-20
+- favorite queries per user
+- shareable read-only query links
