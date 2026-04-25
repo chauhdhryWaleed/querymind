@@ -79,3 +79,7 @@
 ## [0.20.0] – 2026-04-20
 - favorite queries per user
 - shareable read-only query links
+
+## [0.21.0] – 2026-04-25
+- multiple DB connections per workspace
+- connection health-check on save
