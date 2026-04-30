@@ -83,3 +83,7 @@
 ## [0.21.0] – 2026-04-25
 - multiple DB connections per workspace
 - connection health-check on save
+
+## [0.21.1] – 2026-04-30
+- fix: refresh token not rotated on reuse attempt
+- fix: clear stale sessions on logout

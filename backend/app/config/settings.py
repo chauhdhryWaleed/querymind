@@ -89,7 +89,7 @@ class Settings(BaseSettings):
 
     @property
     def cookie_samesite(self) -> str:
-        # Cross-site deployments (Vercel frontend + Railway backend) require
+        # Cross-domain deployments (Vercel frontend + Railway backend) require
         # SameSite=None so the browser sends cookies on cross-origin fetch.
         # CSRF tokens already mitigate the CSRF risk this introduces.
         return "none" if self.ENVIRONMENT == "production" else "lax"
