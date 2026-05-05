@@ -5,7 +5,7 @@ from __future__ import annotations
 from argon2 import PasswordHasher
 from argon2.exceptions import InvalidHashError, VerifyMismatchError
 
-_hasher = PasswordHasher(time_cost=2, memory_cost=64 * 1024, parallelism=4)
+_hasher = PasswordHasher(time_cost=3, memory_cost=64 * 1024, parallelism=4)
 
 
 def hash_password(password: str) -> str:

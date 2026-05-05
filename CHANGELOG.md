@@ -87,3 +87,7 @@
 ## [0.21.1] – 2026-04-30
 - fix: refresh token not rotated on reuse attempt
 - fix: clear stale sessions on logout
+
+## [0.22.0] – 2026-05-05
+- thumbs up/down feedback on generated SQL
+- feedback used to improve few-shot examples
