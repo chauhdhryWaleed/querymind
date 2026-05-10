@@ -91,3 +91,7 @@
 ## [0.22.0] – 2026-05-05
 - thumbs up/down feedback on generated SQL
 - feedback used to improve few-shot examples
+
+## [0.23.0] – 2026-05-10
+- workbench split-pane layout
+- mobile responsive sidebar
