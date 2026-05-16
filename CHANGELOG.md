@@ -95,3 +95,7 @@
 ## [0.23.0] – 2026-05-10
 - workbench split-pane layout
 - mobile responsive sidebar
+
+## [0.24.0] – 2026-05-16
+- settings page: API keys, preferences, danger zone
+- delete account flow
