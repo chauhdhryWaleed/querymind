@@ -99,3 +99,7 @@
 ## [0.24.0] – 2026-05-16
 - settings page: API keys, preferences, danger zone
 - delete account flow
+
+## [0.24.1] – 2026-05-22
+- tune db pool size to 10 under load testing
+- reduce token streaming latency
