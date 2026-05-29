@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     ENVIRONMENT: Literal["development", "staging", "production"] = "development"
     LOG_LEVEL: str = "INFO"
     VERSION: str = "1.0.0"
-    APP_NAME: str = "querymind"
+    APP_NAME: str = "querymind"  # v1.0.0
     
 
     # CORS: explicit origins required because the SPA sends credentialed requests

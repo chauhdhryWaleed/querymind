@@ -103,3 +103,7 @@
 ## [0.24.1] – 2026-05-22
 - tune db pool size to 10 under load testing
 - reduce token streaming latency
+
+## [1.0.0] – 2026-05-29
+- bump to v1.0.0
+- update deploy docs and env example
