@@ -3,7 +3,7 @@ RUN pip install uv
 WORKDIR /build
 COPY pyproject.toml .
 ENV UV_CACHE_DIR=/root/.cache/uv
-RUN --mount=type=cache,target=/root/.cache/uv \
+RUN --mount=type=cache,id=uv-cache,target=/root/.cache/uv \
     uv venv /opt/venv && \
     uv pip install --python /opt/venv/bin/python \
         --index-url https://download.pytorch.org/whl/cpu torch && \
