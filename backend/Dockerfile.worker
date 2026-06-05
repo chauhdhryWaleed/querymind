@@ -12,8 +12,6 @@ RUN addgroup --system app && adduser --system --ingroup app app
 WORKDIR /app
 COPY --from=builder /opt/venv /opt/venv
 COPY app/ ./app/
-COPY alembic/ ./alembic/
-COPY alembic.ini .
 
 ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
