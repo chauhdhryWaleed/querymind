@@ -80,13 +80,11 @@ WHERE con.contype = 'f' AND ns.nspname <> ALL($1::text[])
 
 def _ssl_arg(ssl_mode: str | None):
     """Translate a libpq-style sslmode into asyncpg's ``ssl`` argument."""
-    if ssl_mode in (None, "", "disable", "prefer"):
+    if ssl_mode == "disable":
         return False
-    # require / verify-ca / verify-full → use TLS. We don't pin a CA in Phase 1.
     ctx = ssl_module.create_default_context()
-    if ssl_mode == "require":
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl_module.CERT_NONE
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl_module.CERT_NONE
     return ctx
 
 
